@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  nginx-proxy:
+    build: ./nginx
+    ports:
+      - "8080:80"
+    environment:
+      REPO_URL: "https://repo.example.com" # URL del repositorio con autenticación
+      REPO_HOST: "repo.example.com"         # Host del repositorio
+      REPO_USER: "tu_usuario"     # Reemplaza con tu usuario
+      REPO_PASSWORD: "tu_password" # Reemplaza con tu contraseña
+    networks:
+      - maven-net
+    restart: unless-stopped
+
+networks:
+  maven-net:
+    driver: bridge
