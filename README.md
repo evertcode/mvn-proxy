@@ -20,13 +20,14 @@ Este proyecto configura un proxy inverso usando **NGINX** para permitir que ento
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/maven-nginx-proxy.git
-cd maven-nginx-proxy
+git clone https://github.com/evertcode/mvn-proxy.git
+cd mvn-proxy
 ```
 
 ### 2. Configurar variables de entorno
 
 ```yaml
+environment:
 REPO_URL: "https://repo.example.com" # URL del repositorio con autenticación
 REPO_HOST: "repo.example.com" # Host del repositorio
 REPO_USER: "tu_usuario" # Reemplaza con tu usuario
