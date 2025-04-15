@@ -1,14 +1,9 @@
-FROM nginx:1.20-alpine
+FROM nginx:1.23-alpine
 
-# Instala herramientas para manejar variables
-RUN apk add --no-cache bash wget tar build-base && \
-  wget https://ftp.gnu.org/pub/gnu/gettext/gettext-0.21.tar.gz && \
-  tar -xzf gettext-0.21.tar.gz && \
-  cd gettext-0.21 && \
-  ./configure && \
-  make && \
-  make install && \
-  apk del wget tar build-base
+# Instala dependencias
+RUN apk update && \
+  apk add --no-cache bash gettext
+
 
 # Copia configuración y script de entrada
 COPY conf.d/maven-proxy.conf /etc/nginx/templates/maven-proxy.conf.template
