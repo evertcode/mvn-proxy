@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
 # Genera credenciales en Base64
 AUTH_CREDENTIALS=$(echo -n "${REPO_USER}:${REPO_PASSWORD}" | base64)
 
-# Reemplaza variables en el archivo de configuración usando sed
+# Reemplaza placeholders usando sed
 sed -i \
   -e "s|REPO_URL_PLACEHOLDER|${REPO_URL}|g" \
   -e "s|REPO_HOST_PLACEHOLDER|${REPO_HOST}|g" \
