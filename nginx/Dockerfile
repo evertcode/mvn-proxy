@@ -1,14 +1,7 @@
 FROM nginx:1.23-alpine
 
 # Instala dependencias
-RUN apk add --no-cache bash wget tar build-base && \
-  wget https://ftp.gnu.org/pub/gnu/gettext/gettext-0.21.tar.gz && \
-  tar -xzf gettext-0.21.tar.gz && \
-  cd gettext-0.21 && \
-  ./configure && \
-  make && \
-  make install && \
-  apk del wget tar build-base
+RUN apk add --no-cache bash
 
 
 # Copia configuración y script de entrada
